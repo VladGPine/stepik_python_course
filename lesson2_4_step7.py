@@ -12,17 +12,15 @@ s = 'aaaabbсaa' преобразуется в 'a4b2с1a2', то есть гру
 
 a = input()
 count = 1
-d = []
+d = ''
 
 for i, el in enumerate(a):
     if i != len(a) - 1:
         if el != a[i + 1]:
-            d.append(el)
-            d.append(str(count))
+            d = d + el + str(count)
             count = 0
     else:
-        d.append(el)
-        d.append(str(count))
+        d = d + el + str(count)
         break
     count += 1
-print(''.join(d))
+print(d)
