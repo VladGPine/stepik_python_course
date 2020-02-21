@@ -10,13 +10,19 @@ s = 'aaaabbсaa' преобразуется в 'a4b2с1a2', то есть гру
 последовательность на стандартный вывод. Кодирование должно учитывать регистр символов.
 """
 
-a = 'aaaabbcaa' #input()
-i = 0
-b = 0
+a = input()
+count = 1
+d = []
 
-while i < len(a) - 1:
-    for j in a:
-        if j[i] == j[i + 1]:
-            i += 1
-            b += 1
-print(b)
+for i, el in enumerate(a):
+    if i != len(a) - 1:
+        if el != a[i + 1]:
+            d.append(el)
+            d.append(str(count))
+            count = 0
+    else:
+        d.append(el)
+        d.append(str(count))
+        break
+    count += 1
+print(''.join(d))
